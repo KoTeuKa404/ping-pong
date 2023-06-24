@@ -14,7 +14,7 @@ class GameSprite(sprite.Sprite):
 class Player(GameSprite):
     def update_r(self,):
         key=key.get_pressed()
-        if key[K_UP] and self.rect.y>0:
+        if key[K_UP] and self.rect.y<0:
             self.rect.y-=self.speed
         if key[K_DOWN] and self.rect.y>widht-80:
             self.rect.y+=self.speed
