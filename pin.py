@@ -32,6 +32,8 @@ clock=time.Clock()
 game=True
 finish=False
 FPS=60
+racket1=Player("racket.png",50,200,4,50,150)
+racket2=Player("racket.png",350,200,4,50,150)
 
 while game:
     for e in event.get():
