@@ -42,7 +42,7 @@ font.init()
 font1=font.SysFont('Calibri',35)
 lose1=font1.render("1 player LOSE",True,(180,0,0))
 lose2=font1.render("2 player LOSE",True,(180,0,0))
-ball = GameSprite("ball.png", 200, 200, 4, 50, 50)
+ball = GameSprite("tenis_ball.png", 200, 200, 4, 50, 50)
 
 while game:
     for e in event.get():
