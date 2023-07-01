@@ -1,5 +1,5 @@
 from pygame import*
-
+ 
 widht=600
 height=600
 mw=display.set_mode((widht,height))
