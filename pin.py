@@ -1,8 +1,11 @@
 from pygame import*
+
 widht=600
 height=600
+mw=display.set_mode((widht,height))
+mw.fill((255,120,0))
 class GameSprite(sprite.Sprite):
-    def __init_(self,player_image,player_x,player_y,player_speed,widht,heidht):
+    def __init__ (self,player_image,player_x,player_y,player_speed,widht,heidht):
         super().__init__()
         self.image=transform.scale(image.load(player_image),(widht,heidht))
         self.rect=self.image.get_rect()
@@ -25,8 +28,7 @@ class Player(GameSprite):
         if key[K_s] and self.rect.y>widht-80:
             self.rect.y+=self.speed
 
-mw=display.set_mode((widht,height))
-mw.fill((255,120,0))
+
 display.set_caption("пінг-понг")
 clock=time.Clock()
 game=True
@@ -36,9 +38,12 @@ racket1=Player("racket.png",50,200,4,50,150)
 racket2=Player("racket.png",350,200,4,50,150)
 speed_x=3
 speed_y=3
-font1=font.SysFont('verdana',35)
-lose1=font.render("1 player LOSE",True(180,0,0))
-lose2=font.render("2 player LOSE",True(180,0,0))
+font.init()
+font1=font.SysFont('Calibri',35)
+lose1=font1.render("1 player LOSE",True,(180,0,0))
+lose2=font1.render("2 player LOSE",True,(180,0,0))
+ball = GameSprite("ball.png", 200, 200, 4, 50, 50)
+
 while game:
     for e in event.get():
         if e.type==QUIT:
@@ -50,7 +55,7 @@ while game:
         ball.rect.y+=speed_y
 
 
-     ball update()
+     
     if ball.rect.y>widhth-50 or ball.rect.y<0:
         speed_y*=-1
 
@@ -63,12 +68,12 @@ while game:
    
     if ball.rect.x<0:
         finish=True
-        window.blit(lose2(200,200))
-    if ball.rect.x>width:
+        mw.blit(lose2,(200,200))
+    if ball.rect.x>widht:
         finish=True
-        window.blit(lose1(200,200))       
+        mw.blit(lose1,(200,200))       
     racket1.update_r()
     racket2.update_l()
-    
+    ball.update()
     display.update()
-    clock.tick(FPS) 
+    Clock.tick(FPS) 
